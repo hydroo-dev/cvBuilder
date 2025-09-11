@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Harshit Joshi – Editable Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #222;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+      background: linear-gradient(135deg, #f0f4ff, #fafafa);
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 8px; color:#1a237e; }
+    h2 {
+      font-size: 1rem;
+      margin-top: 20px;
+      margin-bottom: 6px;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 3px;
+      text-transform: uppercase;
+      color: #3949ab;
+      letter-spacing: 0.5px;
+    }
+    p, li { margin-bottom: 5px; font-size: 0.9rem; }
+    ul { margin-left: 18px; }
+    .contact { margin-bottom: 15px; font-weight: 600; color:#444; }
+    .contact span { margin-right: 15px; display:inline-block; }
+    .section { margin-bottom: 12px; }
+
+    /* Containers */
+    .form-container, .cv-container {
+      flex: 1 1 48%;
+      padding: 20px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+    }
+    .form-container:hover, .cv-container:hover { transform: translateY(-2px); }
+
+    /* Form */
+    .form-container h2 { border: none; margin: 10px 0; color:#1a237e; }
+    textarea {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 8px;
+      font-size: 0.9rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      resize: vertical;
+    }
+    button {
+      background: #3949ab;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-right: 6px;
+      font-size: 0.85rem;
+      transition: background 0.2s ease;
+    }
+    button:hover { background: #1a237e; }
+
+    .actions { margin-bottom: 10px; text-align: right; }
+    .actions button { margin-left: 8px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      body { flex-direction: column; padding: 15px; }
+      .form-container, .cv-container { flex: 1 1 100%; }
+    }
+
+    /* Print mode (PDF design same) */
+    @media print {
+      .form-container, .actions { display: none; }
+      body { display: block; padding: 0; background:#fff; }
+      .cv-container {
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- FORM -->
+<div class="form-container">
+  <h2>Edit Resume</h2>
+  <label>Professional Summary:</label>
+  <textarea id="summaryInput" rows="4">Associate QA Engineer with ~2 years of experience in manual and automation testing of web/mobile applications and APIs. Expertise in Playwright, Selenium, Postman, SQL, and CI/CD. Adept at building automation frameworks, writing maintainable scripts, and delivering high-quality releases. Strong analytical mindset with hands-on exposure to performance testing, debugging, and Agile workflows.</textarea>
+
+  <label>Skills (line breaks):</label>
+  <textarea id="skillsInput" rows="5">Automation: Playwright, Selenium, Postman, REST Assured, Appium
+Languages: JavaScript, Python, Java, Bash
+Test Mgmt: TestNG, JUnit, Pytest, Jenkins, JIRA
+Database: SQL, MySQL | Other: Agile, API Testing</textarea>
+
+  <label>Professional Experience (HTML allowed):</label>
+  <textarea id="experienceInput" rows="8"><p><strong>Associate QA Engineer – Webkul, Noida</strong> (Jan 2024 – Present)</p>
+    <ul>
+      <li>Automated end-to-end test cases for Web & Mobile using Playwright and Postman.</li>
+      <li>Performed API testing, browser automation and debugging with tools like Charles Proxy & DevTools.</li>
+      <li>Wrote scalable test scripts for regression, UAT & integration scenarios.</li>
+    </ul><p><strong>Automation Quality Analyst – Infoneo Technologies, Noida</strong> (Jul 2022 – Dec 2023)</p>
+<ul>
+  <li>Developed data-driven Selenium frameworks in Java and integrated with Jenkins for CI.</li>
+  <li>Led end-to-end automation for multiple modules, improving test coverage by 35%.</li>
+  <li>Performed API validation using REST Assured and reported defects using JIRA.</li>
+</ul>
+
+<p><strong>UI Intern – Digital Fuelz Pvt. Ltd.</strong> (Jan 2022 – Jun 2022)</p>
+<ul>
+  <li>Worked on HTML/CSS/JS-based admin panels and internal dashboards.</li>
+  <li>Participated in UI validation and collaborated with QA for release checks.</li>
+</ul></textarea>
+
+  <label>Key Projects (HTML allowed):</label>
+  <textarea id="projectsInput" rows="6"><p><strong>ML-Powered Result Automation Tool (Webkul)</strong></p>
+    <ul>
+      <li>Developed a full-stack result-fetching tool using Playwright and Tesseract.js OCR for captcha bypass.</li>
+      <li>Automated scraping and Excel export for 100+ student results with configurable input range.</li>
+      <li>Used Node.js, Playwright, Tesseract.js, and ExcelJS in backend orchestration.</li>
+    </ul><p><strong>Cross-Browser Regression Suite (Infoneo)</strong></p>
+<ul>
+  <li>Designed Selenium-based regression suite for a CRM portal used by 200+ daily users.</li>
+  <li>Integrated Git/Jenkins for nightly builds and browser testing with BrowserStack.</li>
+</ul>
+
+<p><strong>API Testing Automation Framework (Infoneo)</strong></p>
+<ul>
+  <li>Created REST Assured-based API framework for regression of backend services.</li>
+  <li>Built modular structure using POJO, JSON schema validations, and token management.</li>
+</ul></textarea>
+
+  <label>Certifications (line breaks):</label>
+  <textarea id="certificationsInput" rows="3">Postman API Testing – Udemy
+Selenium with Java – TAU</textarea>
+
+  <button onclick="updateCV()">Update CV</button>
+</div>
+
+<!-- CV -->
+<div class="cv-container" id="resume">
+  <div class="actions">
+    <button onclick="window.print()">🖨️ Print</button>
+  </div>
+  <h1>Harshit Joshi</h1>
+  <div class="contact">
+    <span>📞 +91-9015921534</span>
+    <span>📧 harshitjoshi.fbd@gmail.com</span>
+    <span>📍 Faridabad, Haryana</span>
+  </div> 
+
+  <div class="section">
+    <h2>Professional Summary</h2>
+    <p id="summary">Associate QA Engineer with ~2 years of experience in manual and automation testing of web/mobile applications and APIs. Expertise in Playwright, Selenium, Postman, SQL, and CI/CD. Adept at building automation frameworks, writing maintainable scripts, and delivering high-quality releases. Strong analytical mindset with hands-on exposure to performance testing, debugging, and Agile workflows.</p>
+  </div> 
+
+  <div class="section">
+    <h2>Skills</h2>
+    <ul id="skills">
+      <li>Automation: Playwright, Selenium, Postman, REST Assured, Appium, Charles Proxy</li>
+      <li>Languages: JavaScript, Python, Java, Bash</li>
+      <li>Test Mgmt: TestNG, JUnit, Pytest, CI/CD (Jenkins, Git), JIRA</li>
+      <li>Database: SQL, MySQL | Other: Agile, API Testing, Debugging, JSON, XML</li>
+    </ul>
+  </div> 
+
+  <div class="section">
+    <h2>Professional Experience</h2>
+    <div id="experience">
+      <p><strong>Associate QA Engineer – Webkul, Noida</strong> (Jan 2024 – Present)</p>
+      <ul>
+        <li>Automated end-to-end test cases for Web & Mobile using Playwright and Postman.</li>
+        <li>Performed API testing, browser automation and debugging with tools like Charles Proxy & DevTools.</li>
+        <li>Wrote scalable test scripts for regression, UAT & integration scenarios.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Key Projects</h2>
+    <div id="projects">
+      <p><strong>ML-Powered Result Automation Tool (Webkul)</strong></p>
+      <ul>
+        <li>Developed a full-stack result-fetching tool using Playwright and Tesseract.js OCR for captcha bypass.</li>
+        <li>Automated scraping and Excel export for 100+ student results with configurable input range.</li>
+        <li>Used Node.js, Playwright, Tesseract.js, and ExcelJS in backend orchestration.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Certifications</h2>
+    <ul id="certifications">
+      <li>Postman API Testing – Udemy</li>
+      <li>Selenium with Java – Test Automation University</li>
+      <li>Playwright Advanced Automation – Coursera</li>
+    </ul>
+  </div> 
+
+  <div class="section">
+    <h2>Education</h2>
+    <p><strong>M.Tech in Computer Science (Pursuing)</strong> – MDU, Rohtak</p>
+    <p><strong>B.Tech in Computer Science</strong> – J.C. Bose University, YMCA, 2021</p>
+  </div>
+</div>
+
+<script>
+function updateCV() {
+  document.getElementById("summary").innerText = document.getElementById("summaryInput").value;
+  let skills = document.getElementById("skillsInput").value.split("\n");
+  document.getElementById("skills").innerHTML = skills.map(s => `<li>${s}</li>`).join("");
+  document.getElementById("experience").innerHTML = document.getElementById("experienceInput").value;
+  document.getElementById("projects").innerHTML = document.getElementById("projectsInput").value;
+  let certs = document.getElementById("certificationsInput").value.split("\n");
+  document.getElementById("certifications").innerHTML = certs.map(c => `<li>${c}</li>`).join("");
+}
+</script>
+
+</body>
+</html>
