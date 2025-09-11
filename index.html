@@ -5,80 +5,104 @@
 <title>Harshit Joshi – Editable Resume</title>
 <style>
 /* GLOBAL RESET */
-* { margin:0; padding:0; box-sizing:border-box; }
+* { margin:0 !important; padding:0 !important; box-sizing:border-box !important; }
+
 body {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
-    line-height: 1.6;
-    color: #00ff00;
-    background: #0f0f0f;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1200px;
-    margin: auto;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+    color: #00ff00 !important;
+    background: #0f0f0f !important;
+    padding: 20px !important;
+    max-width: 1200px !important;
+    margin: auto !important;
+    display: flex !important;
+    flex-direction: column !important; /* vertical layout */
+    gap: 20px !important;
+    justify-content: center !important;
 }
 
 /* HEADINGS */
-h1 { font-size: 1.8rem; margin-bottom: 8px; color:#00ff88; text-shadow: 0 0 5px #00ff88; }
+h1 { font-size: 1.8rem !important; margin-bottom: 8px !important; color:#00ff88 !important; text-shadow: 0 0 5px #00ff88 !important; }
 h2 { 
-    font-size: 1rem; margin-top:20px; margin-bottom:6px; 
-    border-bottom: 2px solid #00ff44; padding-bottom:3px;
-    text-transform: uppercase; color:#00ff44; letter-spacing:0.5px;
-    text-shadow: 0 0 2px #00ff44;
+    font-size: 1rem !important; margin-top:20px !important; margin-bottom:6px !important;
+    border-bottom: 2px solid #00ff44 !important; padding-bottom:3px !important;
+    text-transform: uppercase !important; color:#00ff44 !important; letter-spacing:0.5px !important;
+    text-shadow: 0 0 2px #00ff44 !important;
 }
-p, li { margin-bottom:5px; font-size:0.9rem; color:#00ff66; }
-ul { margin-left:18px; }
-.contact { margin-bottom:15px; font-weight:600; color:#00ff55; }
-.contact span { margin-right:15px; display:inline-block; }
+p, li { margin-bottom:5px !important; font-size:0.9rem !important; color:#00ff66 !important; }
+ul { margin-left:18px !important; }
+.contact { margin-bottom:15px !important; font-weight:600 !important; color:#00ff55 !important; }
+.contact span { margin-right:15px !important; display:inline-block !important; }
 
 /* CONTAINERS */
 .form-container, .cv-container {
-    flex: 1 1 48%;
-    padding: 20px;
-    border-radius: 10px;
-    background: #111;
-    box-shadow: 0 0 15px #00ff44 inset, 0 4px 12px rgba(0,255,0,0.2);
-    transition: transform 0.2s ease;
+    flex: none !important;
+    width: 100% !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    background: #111 !important;
+    box-shadow: 0 0 15px #00ff44 inset !important, 0 4px 12px rgba(0,255,0,0.2) !important;
+    transition: transform 0.2s ease, box-shadow 0.3s ease !important;
+    min-width: 280px !important;
+    border: 2px solid #00ff44 !important; /* neon partition */
 }
-.form-container:hover, .cv-container:hover { transform: translateY(-2px); }
+
+/* subtle background difference */
+.form-container { background: #0a0a0a !important; }
+.cv-container { background: #111111 !important; }
+
+.form-container:hover, .cv-container:hover { 
+    transform: translateY(-2px) !important; 
+    box-shadow: 0 0 25px #00ff44 inset !important, 0 6px 15px rgba(0,255,0,0.3) !important;
+}
 
 /* FORM STYLING */
-.form-container h2 { border:none; margin:10px 0; color:#00ff88; text-shadow:0 0 4px #00ff88; }
 textarea {
-    width: 100%; margin-bottom:12px; padding:8px;
-    font-size:0.9rem; border:1px solid #00ff44; border-radius:6px;
-    background: #0a0a0a; color:#00ff66; resize: vertical;
+    width: 100% !important; margin-bottom:12px !important; padding:8px !important;
+    font-size:0.9rem !important; border:1px solid #00ff44 !important; border-radius:6px !important;
+    background: #0a0a0a !important; color:#00ff66 !important; resize: vertical !important;
 }
-input[type=range] { width:100%; margin-bottom:12px; }
+input[type=range] { width:100% !important; margin-bottom:12px !important; }
 button {
-    background:#00ff44; color:#000; border:none;
-    padding:8px 14px; border-radius:6px; cursor:pointer; margin-right:6px;
-    font-size:0.85rem; transition: all 0.2s ease;
+    background:#00ff44 !important; color:#000 !important; border:none !important;
+    padding:8px 14px !important; border-radius:6px !important; cursor:pointer !important; margin-right:6px !important;
+    font-size:0.85rem !important; transition: all 0.2s ease !important;
 }
-button:hover { background:#00ff88; }
+button:hover { background:#00ff88 !important; }
 
 /* ACTIONS */
-.actions { margin-bottom:10px; text-align:right; }
-.actions button { margin-left:8px; }
+.actions { margin-bottom:10px !important; text-align:right !important; }
+.actions button { margin-left:8px !important; }
 
-/* RESPONSIVE */
-@media (max-width:900px) {
-    body { flex-direction: column; padding:15px; }
-    .form-container, .cv-container { flex: 1 1 100%; }
+/* RESPONSIVE: Tablets & Mobile */
+@media (max-width: 900px) {
+    body { flex-direction: column !important; padding: 15px !important; gap: 20px !important; }
+    .form-container, .cv-container { width: 100% !important; }
 }
 
-/* PRINT MODE - normal */
+/* SMALL MOBILE */
+@media (max-width: 600px) {
+    body { padding: 10px !important; }
+    h1 { font-size: 1.5rem !important; }
+    h2 { font-size: 1rem !important; }
+    textarea, input[type=range], button { font-size: 0.9rem !important; }
+    .form-container, .cv-container { padding: 15px !important; }
+}
+
+/* PRINT MODE */
 @media print {
-    body { display:block; padding:0; background:#fff; color:#222; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    .form-container, .actions { display:none; }
-    .cv-container {
-        width:100%; border:none; box-shadow:none; border-radius:0;
-        color:#222; background:#fff;
+    body { 
+        display:block !important; padding:0 !important; background:#fff !important; color:#222 !important; 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
     }
-    h1, h2 { color:#000; text-shadow:none; border-color:#000; }
-    p, li, .contact span { color:#222; }
+    .form-container, .actions { display:none !important; }
+    .cv-container {
+        width:100% !important; border:none !important; box-shadow:none !important; border-radius:0 !important;
+        color:#222 !important; background:#fff !important;
+    }
+    h1, h2 { color:#000 !important; text-shadow:none !important; border-color:#000 !important; }
+    p, li, .contact span { color:#222 !important; }
 }
 </style>
 </head>
@@ -98,39 +122,39 @@ Database: SQL, MySQL | Other: Agile, API Testing</textarea>
 
 <label>Professional Experience (HTML allowed):</label>
 <textarea id="experienceInput" rows="8"><p><strong>Associate QA Engineer – Webkul, Noida</strong> (Jan 2024 – Present)</p>
-    <ul>
-      <li>Automated end-to-end test cases for Web & Mobile using Playwright and Postman.</li>
-      <li>Performed API testing, browser automation and debugging with tools like Charles Proxy & DevTools.</li>
-      <li>Wrote scalable test scripts for regression, UAT & integration scenarios.</li>
-    </ul><p><strong>Automation Quality Analyst – Infoneo Technologies, Noida</strong> (Jul 2022 – Dec 2023)</p>
 <ul>
-  <li>Developed data-driven Selenium frameworks in Java and integrated with Jenkins for CI.</li>
-  <li>Led end-to-end automation for multiple modules, improving test coverage by 35%.</li>
-  <li>Performed API validation using REST Assured and reported defects using JIRA.</li>
+<li>Automated end-to-end test cases for Web & Mobile using Playwright and Postman.</li>
+<li>Performed API testing, browser automation and debugging with tools like Charles Proxy & DevTools.</li>
+<li>Wrote scalable test scripts for regression, UAT & integration scenarios.</li>
 </ul>
-
+<p><strong>Automation Quality Analyst – Infoneo Technologies, Noida</strong> (Jul 2022 – Dec 2023)</p>
+<ul>
+<li>Developed data-driven Selenium frameworks in Java and integrated with Jenkins for CI.</li>
+<li>Led end-to-end automation for multiple modules, improving test coverage by 35%.</li>
+<li>Performed API validation using REST Assured and reported defects using JIRA.</li>
+</ul>
 <p><strong>UI Intern – Digital Fuelz Pvt. Ltd.</strong> (Jan 2022 – Jun 2022)</p>
 <ul>
-  <li>Worked on HTML/CSS/JS-based admin panels and internal dashboards.</li>
-  <li>Participated in UI validation and collaborated with QA for release checks.</li>
+<li>Worked on HTML/CSS/JS-based admin panels and internal dashboards.</li>
+<li>Participated in UI validation and collaborated with QA for release checks.</li>
 </ul></textarea>
 
 <label>Key Projects (HTML allowed):</label>
 <textarea id="projectsInput" rows="6"> <p><strong>ML-Powered Result Automation Tool (Webkul)</strong></p>
-    <ul>
-      <li>Developed a full-stack result-fetching tool using Playwright and Tesseract.js OCR for captcha bypass.</li>
-      <li>Automated scraping and Excel export for 100+ student results with configurable input range.</li>
-      <li>Used Node.js, Playwright, Tesseract.js, and ExcelJS in backend orchestration.</li>
-    </ul><p><strong>Cross-Browser Regression Suite (Infoneo)</strong></p>
 <ul>
-  <li>Designed Selenium-based regression suite for a CRM portal used by 200+ daily users.</li>
-  <li>Integrated Git/Jenkins for nightly builds and browser testing with BrowserStack.</li>
+<li>Developed a full-stack result-fetching tool using Playwright and Tesseract.js OCR for captcha bypass.</li>
+<li>Automated scraping and Excel export for 100+ student results with configurable input range.</li>
+<li>Used Node.js, Playwright, Tesseract.js, and ExcelJS in backend orchestration.</li>
 </ul>
-
+<p><strong>Cross-Browser Regression Suite (Infoneo)</strong></p>
+<ul>
+<li>Designed Selenium-based regression suite for a CRM portal used by 200+ daily users.</li>
+<li>Integrated Git/Jenkins for nightly builds and browser testing with BrowserStack.</li>
+</ul>
 <p><strong>API Testing Automation Framework (Infoneo)</strong></p>
 <ul>
-  <li>Created REST Assured-based API framework for regression of backend services.</li>
-  <li>Built modular structure using POJO, JSON schema validations, and token management.</li>
+<li>Created REST Assured-based API framework for regression of backend services.</li>
+<li>Built modular structure using POJO, JSON schema validations, and token management.</li>
 </ul></textarea>
 
 <label>Certifications (line breaks):</label>
@@ -145,7 +169,7 @@ Selenium with Java – TAU</textarea>
 <input type="range" id="lineHeightSlider" min="1" max="3" step="0.1" value="1.6">
 <label>Margin Top: <span id="marginTopVal">20</span>px</label>
 <input type="range" id="marginTopSlider" min="0" max="50" value="20">
-<label>Margin Bottom: <span id="marginBottomVal">20</span></label>
+<label>Margin Bottom: <span id="marginBottomVal">20</label>
 <input type="range" id="marginBottomSlider" min="0" max="50" value="20">
 <label>Padding Top: <span id="paddingTopVal">20</span></label>
 <input type="range" id="paddingTopSlider" min="0" max="50" value="20">
@@ -194,7 +218,8 @@ Selenium with Java – TAU</textarea>
       <li>Automated end-to-end test cases for Web & Mobile using Playwright and Postman.</li>
       <li>Performed API testing, browser automation and debugging with tools like Charles Proxy & DevTools.</li>
       <li>Wrote scalable test scripts for regression, UAT & integration scenarios.</li>
-    </ul><p><strong>Automation Quality Analyst – Infoneo Technologies, Noida</strong> (Jul 2022 – Dec 2023)</p>
+    </ul>
+<p><strong>Automation Quality Analyst – Infoneo Technologies, Noida</strong> (Jul 2022 – Dec 2023)</p>
 <ul>
   <li>Developed data-driven Selenium frameworks in Java and integrated with Jenkins for CI.</li>
   <li>Led end-to-end automation for multiple modules, improving test coverage by 35%.</li>
@@ -214,11 +239,12 @@ Selenium with Java – TAU</textarea>
 <h2>Key Projects</h2>
 <div id="projects">
  <p><strong>ML-Powered Result Automation Tool (Webkul)</strong></p>
-    <ul>
-      <li>Developed a full-stack result-fetching tool using Playwright and Tesseract.js OCR for captcha bypass.</li>
-      <li>Automated scraping and Excel export for 100+ student results with configurable input range.</li>
-      <li>Used Node.js, Playwright, Tesseract.js, and ExcelJS in backend orchestration.</li>
-    </ul><p><strong>Cross-Browser Regression Suite (Infoneo)</strong></p>
+<ul>
+  <li>Developed a full-stack result-fetching tool using Playwright and Tesseract.js OCR for captcha bypass.</li>
+  <li>Automated scraping and Excel export for 100+ student results with configurable input range.</li>
+  <li>Used Node.js, Playwright, Tesseract.js, and ExcelJS in backend orchestration.</li>
+</ul>
+<p><strong>Cross-Browser Regression Suite (Infoneo)</strong></p>
 <ul>
   <li>Designed Selenium-based regression suite for a CRM portal used by 200+ daily users.</li>
   <li>Integrated Git/Jenkins for nightly builds and browser testing with BrowserStack.</li>
@@ -229,8 +255,7 @@ Selenium with Java – TAU</textarea>
   <li>Created REST Assured-based API framework for regression of backend services.</li>
   <li>Built modular structure using POJO, JSON schema validations, and token management.</li>
 </ul>
-
-  </div> 
+</div> 
 </div>
 
 <div class="section">
