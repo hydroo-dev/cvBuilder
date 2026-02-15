@@ -1,286 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Harshit Joshi – Editable Resume</title>
-<style>
-/* GLOBAL RESET */
-* { margin:0 !important; padding:0 !important; box-sizing:border-box !important; }
-
-body {
-    font-family: 'Courier New', Courier, monospace !important;
-    font-size: 12px !important;
-    line-height: 1.6 !important;
-    color: #00ff00 !important;
-    background: #0f0f0f !important;
-    padding: 20px !important;
-    max-width: 1200px !important;
-    margin: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 20px !important;
-    justify-content: center !important;
-}
-
-/* HEADINGS */
-h1 { font-size: 1.8rem !important; margin-bottom: 8px !important; color:#00ff88 !important; text-shadow: 0 0 5px #00ff88 !important; }
-h2 { 
-    font-size: 1rem !important; margin-top:20px !important; margin-bottom:6px !important;
-    border-bottom: 2px solid #00ff44 !important; padding-bottom:3px !important;
-    text-transform: uppercase !important; color:#00ff44 !important; letter-spacing:0.5px !important;
-    text-shadow: 0 0 2px #00ff44 !important;
-}
-p, li { margin-bottom:5px !important; font-size:0.9rem !important; color:#00ff66 !important; }
-ul { margin-left:18px !important; }
-.contact { margin-bottom:15px !important; font-weight:600 !important; color:#00ff55 !important; }
-.contact span { margin-right:15px !important; display:inline-block !important; }
-
-/* CONTAINERS */
-.form-container, .cv-container {
-    flex: none !important;
-    width: 100% !important;
-    padding: 20px !important;
-    border-radius: 10px !important;
-    background: #111 !important;
-    box-shadow: 0 0 15px #00ff44 inset !important, 0 4px 12px rgba(0,255,0,0.2) !important;
-    transition: transform 0.2s ease, box-shadow 0.3s ease !important;
-    min-width: 280px !important;
-    border: 2px solid #00ff44 !important;
-}
-
-.form-container { background: #0a0a0a !important; }
-.cv-container { background: #111111 !important; }
-
-.form-container:hover, .cv-container:hover { 
-    transform: translateY(-2px) !important; 
-    box-shadow: 0 0 25px #00ff44 inset !important, 0 6px 15px rgba(0,255,0,0.3) !important;
-}
-
-/* FORM STYLING */
-textarea {
-    width: 100% !important; margin-bottom:12px !important; padding:8px !important;
-    font-size:0.9rem !important; border:1px solid #00ff44 !important; border-radius:6px !important;
-    background: #0a0a0a !important; color:#00ff66 !important; resize: vertical !important;
-}
-input[type=range] { width:100% !important; margin-bottom:12px !important; }
-button {
-    background:#00ff44 !important; color:#000 !important; border:none !important;
-    padding:8px 14px !important; border-radius:6px !important; cursor:pointer !important; margin-right:6px !important;
-    font-size:0.85rem !important; transition: all 0.2s ease !important;
-}
-button:hover { background:#00ff88 !important; }
-
-.actions { margin-bottom:10px !important; text-align:right !important; }
-.actions button { margin-left:8px !important; }
-
-.section label {
-    font-size: 28px !important;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    body { flex-direction: column !important; padding: 15px !important; gap: 20px !important; }
-    .form-container, .cv-container { width: 100% !important; }
-}
-
-@media (max-width: 600px) {
-    body { padding: 10px !important; }
-    h1 { font-size: 1.5rem !important; }
-    h2 { font-size: 1rem !important; }
-    textarea, input[type=range], button { font-size: 0.9rem !important; }
-    .form-container, .cv-container { padding: 15px !important; }
-}
-
-/* PRINT MODE - FIXED */
-@media print {
-    @page {
-        margin: 0.5cm;
+  <meta charset="UTF-8">
+  <title>Harshit Joshi – Editable Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #222;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+      background: linear-gradient(135deg, #f0f4ff, #fafafa);
     }
-    
-    * {
-        margin: 0 !important;
-        padding: 0 !important;
+    h1 { font-size: 1.8rem; margin-bottom: 8px; color:#1a237e; }
+    h2 {
+      font-size: 1rem;
+      margin-top: 20px;
+      margin-bottom: 6px;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 3px;
+      text-transform: uppercase;
+      color: #3949ab;
+      letter-spacing: 0.5px;
     }
-    
-    body { 
-        display: block !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        background: #fff !important;
-        color: #222 !important; 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-        font-size: 11pt !important;
+    p, li { margin-bottom: 5px; font-size: 0.9rem; }
+    ul { margin-left: 18px; }
+    .contact { margin-bottom: 15px; font-weight: 600; color:#444; }
+    .contact span { margin-right: 15px; display:inline-block; }
+    .section { margin-bottom: 12px; }
+
+    /* Containers */
+    .form-container, .cv-container {
+      flex: 1 1 48%;
+      padding: 20px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
     }
-    
-    .form-container, .actions { 
-        display: none !important; 
+    .form-container:hover, .cv-container:hover { transform: translateY(-2px); }
+
+    /* Form */
+    .form-container h2 { border: none; margin: 10px 0; color:#1a237e; }
+    textarea {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 8px;
+      font-size: 0.9rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      resize: vertical;
     }
-    
-    .cv-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        border: none !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        color: #222 !important;
-        background: #fff !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        page-break-after: avoid !important;
+    button {
+      background: #3949ab;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-right: 6px;
+      font-size: 0.85rem;
+      transition: background 0.2s ease;
     }
-    
-    h1 { 
-        color: #000 !important;
-        text-shadow: none !important;
-        font-size: 24pt !important;
-        margin-bottom: 8pt !important;
+    button:hover { background: #1a237e; }
+
+    .actions { margin-bottom: 10px; text-align: right; }
+    .actions button { margin-left: 8px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      body { flex-direction: column; padding: 15px; }
+      .form-container, .cv-container { flex: 1 1 100%; }
     }
-    
-    h2 { 
-        color: #000 !important;
-        text-shadow: none !important;
-        border-color: #000 !important;
-        font-size: 14pt !important;
-        margin-top: 12pt !important;
-        margin-bottom: 6pt !important;
-        page-break-after: avoid !important;
+
+    /* Print mode (PDF design same) */
+    @media print {
+      .form-container, .actions { display: none; }
+      body { display: block; padding: 0; background:#fff; }
+      .cv-container {
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        transform: none;
+      }
     }
-    
-    p, li, .contact span { 
-        color: #222 !important;
-        font-size: 10pt !important;
-        margin-bottom: 4pt !important;
-    }
-    
-    .section {
-        page-break-inside: avoid !important;
-        margin-bottom: 10pt !important;
-    }
-    
-    ul {
-        margin-left: 20pt !important;
-    }
-    
-    .contact span {
-        margin-right: 15pt !important;
-    }
-}
-</style>
+  </style>
 </head>
 <body>
 
 <!-- FORM -->
 <div class="form-container">
-<h2>Edit Resume</h2>
-<label>Professional Summary:</label>
-<textarea id="summaryInput" rows="4">Associate QA Engineer with ~2 years of experience in manual and automation testing of web/mobile applications and APIs. Expertise in Playwright, Selenium, Postman, SQL, and CI/CD. Adept at building automation frameworks, writing maintainable scripts, and delivering high-quality releases. Strong analytical mindset with hands-on exposure to performance testing, debugging, and Agile workflows</textarea>
+  <h2>Edit Resume</h2>
+  <label>Professional Summary:</label>
+  <textarea id="summaryInput" rows="4">Associate QA Engineer with ~2 years of experience in manual and automation testing of web/mobile applications and APIs. Expertise in Playwright, Selenium, Postman, SQL, and CI/CD. Adept at building automation frameworks, writing maintainable scripts, and delivering high-quality releases. Strong analytical mindset with hands-on exposure to performance testing, debugging, and Agile workflows.</textarea>
 
-<label>Skills (line breaks):</label>
-<textarea id="skillsInput" rows="5">Automation: Playwright, Selenium, Postman
-Languages: JavaScript, Python, Java
-Test Mgmt: TestNG, Jenkins, JIRA
+  <label>Skills (line breaks):</label>
+  <textarea id="skillsInput" rows="5">Automation: Playwright, Selenium, Postman, REST Assured, Appium
+Languages: JavaScript, Python, Java, Bash
+Test Mgmt: TestNG, JUnit, Pytest, Jenkins, JIRA
 Database: SQL, MySQL | Other: Agile, API Testing</textarea>
 
-<label>Professional Experience (HTML allowed):</label>
-<textarea id="experienceInput" rows="8"><p><strong>Associate QA Engineer – Webkul, Noida</strong> (Jan 2024 – Present)</p>
-<ul>
-<li>Automated end-to-end test cases for Web & Mobile using Playwright and Postman.</li>
-<li>Performed API testing, browser automation and debugging with tools like Charles Proxy & DevTools.</li>
-<li>Wrote scalable test scripts for regression, UAT & integration scenarios.</li>
-</ul>
-<p><strong>Automation Quality Analyst – Infoneo Technologies, Noida</strong> (Jul 2022 – Dec 2023)</p>
-<ul>
-<li>Developed data-driven Selenium frameworks in Java and integrated with Jenkins for CI.</li>
-<li>Led end-to-end automation for multiple modules, improving test coverage by 35%.</li>
-<li>Performed API validation using REST Assured and reported defects using JIRA.</li>
-</ul>
-<p><strong>UI Intern – Digital Fuelz Pvt. Ltd.</strong> (Jan 2022 – Jun 2022)</p>
-<ul>
-<li>Worked on HTML/CSS/JS-based admin panels and internal dashboards.</li>
-<li>Participated in UI validation and collaborated with QA for release checks.</li>
-</ul></textarea>
-
-<label>Key Projects (HTML allowed):</label>
-<textarea id="projectsInput" rows="6"><p><strong>ML-Powered Result Automation Tool (Webkul)</strong></p>
-<ul>
-<li>Developed a full-stack result-fetching tool using Playwright and Tesseract.js OCR for captcha bypass.</li>
-<li>Automated scraping and Excel export for 100+ student results with configurable input range.</li>
-<li>Used Node.js, Playwright, Tesseract.js, and ExcelJS in backend orchestration.</li>
-</ul>
-<p><strong>Cross-Browser Regression Suite (Infoneo)</strong></p>
-<ul>
-<li>Designed Selenium-based regression suite for a CRM portal used by 200+ daily users.</li>
-<li>Integrated Git/Jenkins for nightly builds and browser testing with BrowserStack.</li>
-</ul>
-<p><strong>API Testing Automation Framework (Infoneo)</strong></p>
-<ul>
-<li>Created REST Assured-based API framework for regression of backend services.</li>
-<li>Built modular structure using POJO, JSON schema validations, and token management.</li>
-</ul></textarea>
-
-<label>Certifications (line breaks):</label>
-<textarea id="certificationsInput" rows="3">Postman API Testing – Udemy
-Selenium with Java – TAU</textarea>
-
-<div class="section">
-<h2>Style Controls</h2>
-<label>Font Size: <span id="fontSizeVal">12</span>px</label>
-<input type="range" id="fontSizeSlider" min="10" max="20" value="12">
-<label>Line Height: <span id="lineHeightVal">1.6</span></label>
-<input type="range" id="lineHeightSlider" min="1" max="3" step="0.1" value="1.6">
-<label>Margin Top: <span id="marginTopVal">20</span>px</label>
-<input type="range" id="marginTopSlider" min="0" max="50" value="20">
-<label>Margin Bottom: <span id="marginBottomVal">20</span></label>
-<input type="range" id="marginBottomSlider" min="0" max="50" value="20">
-<label>Padding Top: <span id="paddingTopVal">20</span></label>
-<input type="range" id="paddingTopSlider" min="0" max="50" value="20">
-<label>Padding Bottom: <span id="paddingBottomVal">20</span></label>
-<input type="range" id="paddingBottomSlider" min="0" max="50" value="20">
-</div>
-
-<div class="actions">
-<button onclick="updateCV()">Update CV</button>
-</div>
-</div>
-
-<!-- CV -->
-<div class="cv-container" id="resume">
-<div class="actions">
-<button onclick="window.print()">🖨️ Print / Save as PDF</button>
-</div>
-
-<h1>Harshit Joshi</h1>
-<div class="contact">
-<span>📞 +91-9015921534</span>
-<span>📧 harshitjoshi.fbd@gmail.com</span>
-<span>📍 Faridabad, Haryana</span>
-</div>
-
-<div class="section">
-<h2>Professional Summary</h2>
-<p id="summary">Associate QA Engineer with ~2 years of experience in manual and automation testing of web/mobile applications and APIs. Expertise in Playwright, Selenium, Postman, SQL, and CI/CD. Adept at building automation frameworks, writing maintainable scripts, and delivering high-quality releases. Strong analytical mindset with hands-on exposure to performance testing, debugging, and Agile workflows.</p>
-</div>
-
-<div class="section">
-<h2>Skills</h2>
-<ul id="skills">
-<li>Automation: Playwright, Selenium, Postman</li>
-<li>Languages: JavaScript, Python, Java</li>
-<li>Test Mgmt: TestNG, Jenkins, JIRA</li>
-<li>Database: SQL, MySQL | Other: Agile, API Testing</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>Professional Experience</h2>
-<div id="experience">
-  <p><strong>Associate QA Engineer – Webkul, Noida</strong> (Jan 2024 – Present)</p>
+  <label>Professional Experience (HTML allowed):</label>
+  <textarea id="experienceInput" rows="8"><p><strong>Associate QA Engineer – Webkul, Noida</strong> (Jan 2024 – Present)</p>
     <ul>
       <li>Automated end-to-end test cases for Web & Mobile using Playwright and Postman.</li>
       <li>Performed API testing, browser automation and debugging with tools like Charles Proxy & DevTools.</li>
       <li>Wrote scalable test scripts for regression, UAT & integration scenarios.</li>
-    </ul>
-<p><strong>Automation Quality Analyst – Infoneo Technologies, Noida</strong> (Jul 2022 – Dec 2023)</p>
+    </ul><p><strong>Automation Quality Analyst – Infoneo Technologies, Noida</strong> (Jul 2022 – Dec 2023)</p>
 <ul>
   <li>Developed data-driven Selenium frameworks in Java and integrated with Jenkins for CI.</li>
   <li>Led end-to-end automation for multiple modules, improving test coverage by 35%.</li>
@@ -291,21 +124,15 @@ Selenium with Java – TAU</textarea>
 <ul>
   <li>Worked on HTML/CSS/JS-based admin panels and internal dashboards.</li>
   <li>Participated in UI validation and collaborated with QA for release checks.</li>
-</ul>
+</ul></textarea>
 
-</div>
-</div>
-
-<div class="section">
-<h2>Key Projects</h2>
-<div id="projects">
- <p><strong>ML-Powered Result Automation Tool (Webkul)</strong></p>
-<ul>
-  <li>Developed a full-stack result-fetching tool using Playwright and Tesseract.js OCR for captcha bypass.</li>
-  <li>Automated scraping and Excel export for 100+ student results with configurable input range.</li>
-  <li>Used Node.js, Playwright, Tesseract.js, and ExcelJS in backend orchestration.</li>
-</ul>
-<p><strong>Cross-Browser Regression Suite (Infoneo)</strong></p>
+  <label>Key Projects (HTML allowed):</label>
+  <textarea id="projectsInput" rows="6"><p><strong>ML-Powered Result Automation Tool (Webkul)</strong></p>
+    <ul>
+      <li>Developed a full-stack result-fetching tool using Playwright and Tesseract.js OCR for captcha bypass.</li>
+      <li>Automated scraping and Excel export for 100+ student results with configurable input range.</li>
+      <li>Used Node.js, Playwright, Tesseract.js, and ExcelJS in backend orchestration.</li>
+    </ul><p><strong>Cross-Browser Regression Suite (Infoneo)</strong></p>
 <ul>
   <li>Designed Selenium-based regression suite for a CRM portal used by 200+ daily users.</li>
   <li>Integrated Git/Jenkins for nightly builds and browser testing with BrowserStack.</li>
@@ -315,55 +142,78 @@ Selenium with Java – TAU</textarea>
 <ul>
   <li>Created REST Assured-based API framework for regression of backend services.</li>
   <li>Built modular structure using POJO, JSON schema validations, and token management.</li>
-</ul>
-</div> 
+</ul></textarea>
+
+  <label>Certifications (line breaks):</label>
+  <textarea id="certificationsInput" rows="3">Postman API Testing – Udemy
+Selenium with Java – TAU</textarea>
+
+  <button onclick="updateCV()">Update CV</button>
 </div>
 
+<!-- CV -->
+<div class="cv-container" id="resume">
+  <div class="actions">
+    <button onclick="window.print()">🖨️ Print</button>
+  </div>
+  <h1>Harshit Joshi</h1>
+  <div class="contact">
+    <span>📞 +91-9015921534</span>
+    <span>📧 harshitjoshi.fbd@gmail.com</span>
+    <span>📍 Faridabad, Haryana</span>
+  </div> 
 
+  <div class="section">
+    <h2>Professional Summary</h2>
+    <p id="summary">Associate QA Engineer with ~2 years of experience in manual and automation testing of web/mobile applications and APIs. Expertise in Playwright, Selenium, Postman, SQL, and CI/CD. Adept at building automation frameworks, writing maintainable scripts, and delivering high-quality releases. Strong analytical mindset with hands-on exposure to performance testing, debugging, and Agile workflows.</p>
+  </div> 
 
-<div class="section">
-<h2>Education</h2>
-<p><strong>B.Tech in Computer Science</strong> – J.C. Bose University, YMCA, 2024</p>
-</div>
+  <div class="section">
+    <h2>Skills</h2>
+    <ul id="skills">
+      <li>Automation: Playwright, Selenium, Postman, REST Assured, Appium, Charles Proxy</li>
+      <li>Languages: JavaScript, Python, Java, Bash</li>
+      <li>Test Mgmt: TestNG, JUnit, Pytest, CI/CD (Jenkins, Git), JIRA</li>
+      <li>Database: SQL, MySQL | Other: Agile, API Testing, Debugging, JSON, XML</li>
+    </ul>
+  </div> 
+
+  <div class="section">
+    <h2>Professional Experience</h2>
+    <div id="experience">
+      <p><strong>Associate QA Engineer – Webkul, Noida</strong> (Jan 2024 – Present)</p>
+      <ul>
+        <li>Automated end-to-end test cases for Web & Mobile using Playwright and Postman.</li>
+        <li>Performed API testing, browser automation and debugging with tools like Charles Proxy & DevTools.</li>
+        <li>Wrote scalable test scripts for regression, UAT & integration scenarios.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Key Projects</h2>
+
+    <div id="projects">
+      <p><strong>POS & eCommerce Automation Framework – CI/CD Integrated (Webkul)</strong></p> <ul> <li>Automated end-to-end regression test cases for POS and eCommerce modules using Playwright and Postman</li> <li>Developed a CI/CD-integrated test pipeline with Jenkins, GitHub Actions, and YAML for continuous validation and reporting</li> <li>Tested order management, payments, and inventory synchronization across multiple browsers and devices</li> <li>Improved release efficiency by 60% through automation and reusable test script design</li> </ul><p><strong>Maha Kumbh Mela 2025 – Public Distribution Monitoring System (Infoneo Technologies)</strong></p> <ul> <li>Conducted functional, usability, performance, and security testing for critical government systems</li> <li>Validated user registration, database updates, QR code generation, and hardware integration (QR scanners, printers)</li> <li>Managed 7 lakh+ user records, ensuring data integrity, scalability, and system reliability</li> <li>Logged and tracked issues via JIRA/Bugzilla, minimizing defect leakage and improving test coverage</li> </ul><p><strong>Oil India & ONGC Vehicle Tender System 2024 (Infoneo Technologies)</strong></p> <ul> <li>Tested a web-based tender management platform for 70,000+ online applicants</li> <li>Verified Aadhar-based authentication, document uploads, and lottery-based bidder selection workflows</li> <li>Designed and executed detailed test cases and automation scripts for submission and validation processes</li> <li>Performed API and integration testing using Postman, ensuring accuracy and transparency in tender outcomes</li> </ul>
+    </div>
+
+  <div class="section">
+    <h2>Education</h2>
+    <p><strong>M.Tech in Computer Science (Pursuing)</strong> – MDU, Rohtak</p>
+    <p><strong>B.Tech in Computer Science</strong> – J.C. Bose University, YMCA, 2024</p>
+  </div>
 </div>
 
 <script>
 function updateCV() {
-    document.getElementById("summary").innerHTML = document.getElementById("summaryInput").value.replace(/\n/g,"<br>");
-    let skills = document.getElementById("skillsInput").value.split("\n");
-    document.getElementById("skills").innerHTML = skills.map(s=>`<li>${s}</li>`).join("");
-    document.getElementById("experience").innerHTML = document.getElementById("experienceInput").value;
-    document.getElementById("projects").innerHTML = document.getElementById("projectsInput").value;
-    let certs = document.getElementById("certificationsInput").value.split("\n");
-    document.getElementById("certifications").innerHTML = certs.map(c=>`<li>${c}</li>`).join("");
+  document.getElementById("summary").innerText = document.getElementById("summaryInput").value;
+  let skills = document.getElementById("skillsInput").value.split("\n");
+  document.getElementById("skills").innerHTML = skills.map(s => `<li>${s}</li>`).join("");
+  document.getElementById("experience").innerHTML = document.getElementById("experienceInput").value;
+  document.getElementById("projects").innerHTML = document.getElementById("projectsInput").value;
+  let certs = document.getElementById("certificationsInput").value.split("\n");
+  document.getElementById("certifications").innerHTML = certs.map(c => `<li>${c}</li>`).join("");
 }
-
-// STYLE SLIDERS
-const cv = document.getElementById("resume");
-
-const fontSizeSlider = document.getElementById("fontSizeSlider");
-const fontSizeVal = document.getElementById("fontSizeVal");
-fontSizeSlider.addEventListener("input",()=>{fontSizeVal.innerText=fontSizeSlider.value; cv.style.fontSize=fontSizeSlider.value+"px";});
-
-const lineHeightSlider = document.getElementById("lineHeightSlider");
-const lineHeightVal = document.getElementById("lineHeightVal");
-lineHeightSlider.addEventListener("input",()=>{lineHeightVal.innerText=lineHeightSlider.value; cv.style.lineHeight=lineHeightSlider.value;});
-
-const marginTopSlider = document.getElementById("marginTopSlider");
-const marginTopVal = document.getElementById("marginTopVal");
-marginTopSlider.addEventListener("input",()=>{marginTopVal.innerText=marginTopSlider.value; cv.style.marginTop=marginTopSlider.value+"px";});
-
-const marginBottomSlider = document.getElementById("marginBottomSlider");
-const marginBottomVal = document.getElementById("marginBottomVal");
-marginBottomSlider.addEventListener("input",()=>{marginBottomVal.innerText=marginBottomSlider.value; cv.style.marginBottom=marginBottomSlider.value+"px";});
-
-const paddingTopSlider = document.getElementById("paddingTopSlider");
-const paddingTopVal = document.getElementById("paddingTopVal");
-paddingTopSlider.addEventListener("input",()=>{paddingTopVal.innerText=paddingTopSlider.value; cv.style.paddingTop=paddingTopSlider.value+"px";});
-
-const paddingBottomSlider = document.getElementById("paddingBottomSlider");
-const paddingBottomVal = document.getElementById("paddingBottomVal");
-paddingBottomSlider.addEventListener("input",()=>{paddingBottomVal.innerText=paddingBottomSlider.value; cv.style.paddingBottom=paddingBottomSlider.value+"px";});
 </script>
 
 </body>
